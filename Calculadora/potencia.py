@@ -1,2 +1,2 @@
-def potencia(a, b):
+def potenciaf(a, b):
     return a ** b
