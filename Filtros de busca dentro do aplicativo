@@ -1,0 +1,23 @@
+1. Filtros de Logística e Tempo
+Entrega Grátis: mostra apenas lojas sem taxa de envio.
+Tempo de Entrega: Permite selecionar lojas que entregam no tempo habil que o usuário possui.
+Retirada: Filtra estabelecimentos onde você mesmo pode buscar o pedido, economizando a taxa.
+
+2. Filtros de Preço e Promoção
+Faixa de Preço: Do mais barato ao mais caro ou vice e versa.
+Cupons e Ofertas: Mostra apenas lojas que aceitam cupons.
+
+3. Filtros de Categoria e Dieta
+Categorias: Tipos de produtos vendidos
+Dietas Especiais: Opções Veganas, Vegetarianas, Sem Glúten ou Sem Lactose.
+Mercado e Padaria: Separa mercados de padarias
+
+4. Filtros de Avaliação 
+Nota: Filtra lojas por rating
+Mais Pedidos: organiza pelos estabelecimentos que têm o maior volume de vendas na região.
+Novidade: Mostra as lojas que entraram recentemente na plataforma.
+
+5. Filtros de Pagamento
+Pagamento no App: Filtra lojas que aceitam cartões de crédito/débito direto pelo aplicativo.
+Vale-Refeição: Essencial para quem usa cartões como Sodexo, Alelo ou Ticket (permite filtrar quem aceita pagamento online ou na entrega).
+Pix: Filtra lojas que aceitam essa modalidade instantânea.

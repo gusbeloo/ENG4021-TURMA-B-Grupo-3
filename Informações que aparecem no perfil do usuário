@@ -1,0 +1,20 @@
+1. Dados de Identificação
+Nome e Sobrenome
+E-mail e Telefone: Login e Contato
+CPF: Obrigatório para emissão de notas fiscais.
+
+2. Informações de Entrega
+Endereços Salvos: Pode cadastrar vários endereços e definir apelidos para eles.
+
+Para cada endereço salvo:
+    -> Ponto de Referência: Uma informação crucial para o entregador (ex: "Próximo à padaria X" ou "Portão azul").
+    -> Tipo de Residência: Definir se é Casa ou Apartamento (incluindo bloco e número do apto).
+
+3. Pagamento e Preferências
+Cartões Salvos: Dados do cartão de crédito, débito ou vale-refeição. 
+Preferências de Notificação: Habilita ou Desabilita as notificações
+
+4. Configurações de Privacidade
+--> Opções <--
+Compartilhar cookies
+Excluir Conta
