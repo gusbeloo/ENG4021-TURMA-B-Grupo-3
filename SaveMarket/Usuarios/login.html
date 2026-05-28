@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 
-  <link rel="stylesheet" href="css/style.css">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
 
-  <div class="container">
+    <div class="container">
 
-    <div class="card">
+        <div class="card">
 
-      <h1>Login</h1>
+            <h1>Login</h1>
 
-      <input type="email" id="loginEmail" placeholder="E-mail">
+            {% if messages %}
+                {% for message in messages %}
 
-      <input type="password" id="loginSenha" placeholder="Senha">
+                    <p class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </p>
 
-      <button onclick="login()">Entrar</button>
+                {% endfor %}
+            {% endif %}
 
-      <p id="mensagemLogin"></p>
+            <form method="POST">
 
-      <a href="registro.html" class="link">
-        Criar conta
-      </a>
+                {% csrf_token %}
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                >
+
+                <input
+                    type="password"
+                    name="senha"
+                    placeholder="Senha"
+                    required
+                >
+
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            <a href="/registro/" class="link">
+                Criar conta
+            </a>
+
+        </div>
 
     </div>
-
-  </div>
-
-  <script src="js/script.js"></script>
 
 </body>
 </html>
