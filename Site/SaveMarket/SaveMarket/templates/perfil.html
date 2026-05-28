@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil</title>
+
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+</head>
+<body>
+
+    <div class="perfil-container">
+
+        <div class="perfil-topo">
+            <h1>Perfil</h1>
+        </div>
+
+        <div class="perfil-info">
+
+            <div class="foto-perfil"></div>
+
+            <h2>João Silva</h2>
+
+            <p>joao@email.com</p>
+
+        </div>
+
+        <div class="menu-perfil">
+
+            <div class="opcao">
+                <span>Meus Dados</span>
+                <span>></span>
+            </div>
+
+            <div class="opcao">
+                <span>Endereços</span>
+                <span>></span>
+            </div>
+
+            <div class="opcao">
+                <span>Métodos de Pagamento</span>
+                <span>></span>
+            </div>
+
+            <div class="opcao">
+                <span>Pedidos</span>
+                <span>></span>
+            </div>
+
+            <div class="opcao">
+                <span>Ajuda</span>
+                <span>></span>
+            </div>
+
+        </div>
+
+        <button class="btn-sair">
+            Sair da Conta
+        </button>
+
+    </div>
+
+</body>
+</html>
