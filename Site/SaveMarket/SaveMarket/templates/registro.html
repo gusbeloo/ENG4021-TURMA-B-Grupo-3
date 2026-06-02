@@ -1,40 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Registro</title>
-
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
   <div class="container">
-
     <div class="card">
 
       <h1>Registrar Usuário</h1>
 
-      <input type="text" id="nome" placeholder="Nome">
+      <form method="POST">
+        {% csrf_token %}
 
-      <input type="email" id="email" placeholder="E-mail">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="senha" placeholder="Senha">
 
-      <input type="password" id="senha" placeholder="Senha">
+        {% if mensagem %}
+          <p>{{ mensagem }}</p>
+        {% endif %}
 
-      <button onclick="registrarUsuario()">
-        Registrar
-      </button>
+        <button type="submit">Registrar</button>
+      </form>
 
-      <a href="login.html" class="link">
-        Voltar para Login
-      </a>
+      <a href="{% url 'login' %}" class="link">Voltar para Login</a>
 
     </div>
-
   </div>
-
-  <script src="js/script.js"></script>
-
 </body>
 </html>
