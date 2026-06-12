@@ -82,3 +82,9 @@ def login_view(request):
 
 def perfil_view(request):
     return render(request, 'perfil.html')
+
+def perfil_view(request):
+    return render(request, 'perfil.html')
+
+def produto_view(request):
+    return render(request, 'produto.html')
