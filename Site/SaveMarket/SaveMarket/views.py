@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from SaveMarket.Produtos.models import Produto, MercadoParceiro
+from SaveMarket.Produtos.models import Produto, MercadoParceiro, Favorito
 from django.db.models import Q
 
 def home(request):
@@ -99,3 +99,13 @@ def login_view(request):
 @login_required
 def perfil_view(request):
     return render(request, 'perfil.html')
+
+@login_required
+def alternar_favorito(request, produto_id):
+    produto = get_object_or_404(Produto, pk=produto_id)
+    favorito, criado = Favorito.objects.get_or_create(usuario=request.user, produto=produto)
+    
+    if not criado:
+        favorito.delete()
+        
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
