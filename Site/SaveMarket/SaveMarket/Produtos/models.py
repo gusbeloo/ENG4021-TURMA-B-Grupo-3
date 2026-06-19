@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
  
  
 class MercadoParceiro(models.Model):
@@ -22,6 +23,12 @@ class Produto(models.Model):
         verbose_name="Mercado Parceiro",
     )
     titulo = models.CharField(max_length=255, verbose_name="Título")
+
+    categoria = models.CharField(
+    max_length=100,
+    verbose_name="Categoria",
+    default="Outros"
+    )
     preco_original = models.DecimalField(
         max_digits=10, decimal_places=2, verbose_name="Preço Original"
     )
@@ -50,3 +57,16 @@ class Produto(models.Model):
     def dias_para_vencer(self):
       delta = self.validade - timezone.now().date()
       return max(delta.days, 0)
+
+class Favorito(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favoritos')
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='favoritado_por')
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('usuario', 'produto')
+        verbose_name = "Favorito"
+        verbose_name_plural = "Favoritos"
+
+    def __str__(self):
+        return f"{self.usuario.username} - {self.produto.titulo}"
