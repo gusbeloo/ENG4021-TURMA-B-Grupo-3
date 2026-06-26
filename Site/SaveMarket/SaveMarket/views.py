@@ -141,9 +141,14 @@ def meus_dados_view(request):
         user.email = request.POST.get('email', '')
         user.save()
  
-        # Atualiza telefone no Perfil (criado automaticamente via signal)
-        user.perfil.telefone = request.POST.get('telefone', '')
-        user.perfil.save()
+        perfil = user.perfil
+        perfil.telefone = request.POST.get('telefone', '')
+ 
+        # Processa upload da foto (se enviada)
+        if request.FILES.get('foto'):
+            perfil.foto = request.FILES['foto']
+ 
+        perfil.save()
  
         messages.success(request, 'Dados atualizados com sucesso!')
         return redirect('meus_dados')

@@ -27,8 +27,22 @@
             {% endfor %}
         {% endif %}
 
-        <form method="post" class="form-dados">
+        <form method="post" class="form-dados" enctype="multipart/form-data">
             {% csrf_token %}
+
+            <!-- FOTO DE PERFIL -->
+            <div class="foto-upload">
+                {% if request.user.perfil.foto %}
+                    <img src="{{ request.user.perfil.foto.url }}" class="foto-preview" id="fotoPreview" alt="Foto de perfil">
+                {% else %}
+                    <div class="foto-preview-vazia" id="fotoPreview">👤</div>
+                {% endif %}
+
+                <label for="foto" class="btn-foto">
+                    📷 Alterar foto
+                </label>
+                <input type="file" id="foto" name="foto" accept="image/*" style="display: none;" onchange="previewFoto(event)">
+            </div>
 
             <div class="campo">
                 <label for="first_name">Nome</label>
@@ -55,5 +69,27 @@
 
     </div>
 
+    <script>
+    function previewFoto(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('fotoPreview');
+                if (preview.tagName === 'IMG') {
+                    preview.src = e.target.result;
+                } else {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'foto-preview';
+                    img.id = 'fotoPreview';
+                    preview.replaceWith(img);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    </script>
+
 </body>
-</html> 
+</html>
